@@ -95,5 +95,14 @@ public class Demo {
 		Comparator<User> comparator5 = Comparator.comparing(user -> user.getName());
 		users.sort(comparator5);
 		users.forEach(user -> System.out.println(user.getName()));
+		
+		System.out.println("---------------------------------");
+		List<User> users2 = Arrays.asList(new User("Rachel Green", 101), new User("Monica Geller", 102), new User("Ross Geller",103));
+		Comparator<User> comparator6 = Comparator.comparing(user -> user.getName());
+		Comparator<User> comparator7 = Comparator.comparing(user -> user.getId());
+		Comparator<User> comparator8 = comparator6.thenComparing(comparator7);
+//		comparator8.reversed();
+		users2.sort(comparator8);
+		users2.forEach(user -> System.out.println(user.getName()));
 	}
 }
